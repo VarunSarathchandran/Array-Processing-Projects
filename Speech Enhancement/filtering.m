@@ -35,8 +35,8 @@ for i = 1:num_frames
             U1 = Uxn(:, 1);
             Q1 = Qxn(:, 1);
             eig_s = eigs(1)-1;
-            %w = eig_s*(U1)/(eig_s + factor);
-            w = (eig_s/(eig_s+factor))*pinv(Rn)*U1;
+            w = eig_s*(U1)/(eig_s + factor);
+            %w = (eig_s/(eig_s+factor))*pinv(Rn)*U1;
             % w = eig_s*a/(eig_s + factor);
             Sf_hat(j, (i-1)*FrameLength+1:i*FrameLength) = w'*xf_tmp;
         end
